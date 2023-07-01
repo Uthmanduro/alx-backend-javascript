@@ -11,10 +11,10 @@ export default class HolbertonCourse {
   }
 
   set name(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Name must be a string');
-    } else {
+    if (typeof value === 'string') {
       this._name = value;
+    } else {
+      throw new TypeError('Name must be a string');
     }
   }
 
@@ -23,10 +23,10 @@ export default class HolbertonCourse {
   }
 
   set length(value) {
-    if (typeof value !== 'number') {
-      throw new TypeError('Length must be a number');
-    } else {
+    if (typeof value === 'number') {
       this._length = value;
+    } else {
+      throw new TypeError('Length must be a number');
     }
   }
 
@@ -35,10 +35,10 @@ export default class HolbertonCourse {
   }
 
   set students(value) {
-    if (typeof Students === 'object') {
-      for (const student in Students) {
+    if (typeof value === 'object') {
+      for (const student of value) {
         if (typeof student !== 'string') {
-          throw new TypeError('Students must be an array');
+          throw new TypeError(`${student} must be a string`);
         }
       }
     } else {
@@ -46,5 +46,4 @@ export default class HolbertonCourse {
     }
     this._students = value;
   }
-  /* eslint-disable no-underscore-dangle */
 }
