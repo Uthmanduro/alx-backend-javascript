@@ -12,8 +12,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
           const value = `${result.reason.name}: ${result.reason.message}`;
           arr.push({ status: result.status, value });
         } else {
-          const { value } = result;
-          arr.push({ status: result.status, value });
+          arr.push(result);
         }
       }
       return arr;
