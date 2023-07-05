@@ -5,5 +5,5 @@ export default function createInt8TypedArray(length, position, value) {
   if (int8[position] === undefined) {
     throw new Error('Position outside range');
   }
-  return buffer;
+  return new DataView(buffer);
 }
