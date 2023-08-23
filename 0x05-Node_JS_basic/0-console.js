@@ -2,7 +2,7 @@
 // create a function named displayMessage
 
 function displayMessage(argument) {
-  process.stdout.write(`${argument}\n`);
+  console.log(argument);
 }
 
 module.exports = displayMessage;
