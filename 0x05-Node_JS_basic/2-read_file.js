@@ -10,31 +10,26 @@ function countStudents(filePath) {
   } catch (err) {
     throw new Error('Cannot load the database');
   }
-  const students = data.split('\r\n');
-
-  students.shift();
-  const courses = new Map();
-  students.forEach((student) => {
-    const studentData = student.split(',');
-    const firstName = studentData[0];
-    const field = studentData[3];
-    if (courses.has(field)) {
-      courses.get(field).students.push(firstName);
-      courses.get(field).count += 1;
+  const splitData = data.split('\r\n');
+  
+  splitData.shift();
+  const studentData = {};
+  
+  for (let student of splitData) {
+    student = student.split(',');
+    if (student[3] in studentData) {
+      studentData[student[3]].push(student[0]);
     } else {
-      courses.set(field, { students: [firstName], count: 1 });
+      studentData[student[3]] = [];
+      studentData[student[3]].push(student[0]);
     }
-  });
-
-  console.log(`Number of students: ${students.length}`);
-
-  courses.forEach((courseData, course) => {
-    console.log(
-      `Number of students in ${course}: ${
-        courseData.count
-      }. List: ${courseData.students.join(', ')}`,
-    );
-  });
+  }
+  console.log(`Number of students: ${splitData.length}`);
+  for (const fields in studentData) {
+    if (fields) {
+      console.log(`Number of students in ${fields}: ${studentData[fields].length}. List: ${studentData[fields].join(', ')}`);
+    }
+  }
 }
 
 module.exports = countStudents;
