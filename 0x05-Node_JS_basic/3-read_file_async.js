@@ -8,7 +8,7 @@ function countStudents(filePath) {
       if (err) {
         reject(new Error('Cannot load the database'));
       } else {
-        const splitData = data.split('\r\n');
+        const splitData = data.trim().split('\r\n');
 
         splitData.shift();
         const studentData = {};

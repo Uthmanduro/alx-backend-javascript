@@ -10,7 +10,7 @@ function countStudents(filePath) {
   } catch (err) {
     throw new Error('Cannot load the database');
   }
-  const splitData = data.split('\r\n');
+  const splitData = data.trim().split('\r\n');
   
   splitData.shift();
   const studentData = {};
