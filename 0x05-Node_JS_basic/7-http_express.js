@@ -19,7 +19,7 @@ app.get('/students', async (req, res) => {
         if (err) {
           reject(new Error('Cannot load the database'));
         } else {
-          const splitData = data.trim().split('\r\n');
+          const splitData = data.trim().split('\n');
 
           splitData.shift();
           const studentData = {};
