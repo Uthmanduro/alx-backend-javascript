@@ -10,8 +10,10 @@ function countStudents(filePath) {
   } catch (err) {
     throw new Error('Cannot load the database');
   }
-  data.trim();
   const splitData = data.split('\r\n');
+  if (splitData[splitData.length - 1] === '') {
+    splitData.pop();
+  }
   splitData.shift();
   const studentData = {};
   for (let student of splitData) {
@@ -25,7 +27,9 @@ function countStudents(filePath) {
   }
   console.log(`Number of students: ${splitData.length}`);
   for (const fields in studentData) {
-    console.log(`Number of students in ${fields}: ${studentData[fields].length}. List: ${studentData[fields].join(', ')}`);
+    if (fields) {
+      console.log(`Number of students in ${fields}: ${studentData[fields].length}. List: ${studentData[fields].join(', ')}`);
+    }
   }
 }
 
