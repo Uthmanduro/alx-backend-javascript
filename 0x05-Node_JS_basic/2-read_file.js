@@ -11,10 +11,10 @@ function countStudents(filePath) {
     throw new Error('Cannot load the database');
   }
   const splitData = data.trim().split('\r\n');
-  
+
   splitData.shift();
   const studentData = {};
-  
+
   for (let student of splitData) {
     student = student.split(',');
     if (student[3] in studentData) {
