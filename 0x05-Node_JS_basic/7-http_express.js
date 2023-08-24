@@ -47,9 +47,8 @@ app.get('/students', async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.write('This is the list of our students\n');
-  await countStudents(filePath).catch(() => {
-    res.end();
-  });
+  await countStudents(filePath);
+  res.end();
 });
 
 app.listen(port, host);
