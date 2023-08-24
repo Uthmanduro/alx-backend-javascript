@@ -44,11 +44,9 @@ const app = http.createServer(async (req, res) => {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     res.write('This is the list of our students\n');
-    await countStudents(filePath)
-        .catch((error) => {
-            res.end();
-        });
-    res.end();
+    await countStudents(filePath).catch(() => {
+      res.end();
+    });
   }
 });
 
