@@ -1,0 +1,11 @@
+{
+  "name": "alx-tests",
+  "version": "1.0.0",
+  "description": "alx_tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Uthman",
+  "license": "ISC"
+}
