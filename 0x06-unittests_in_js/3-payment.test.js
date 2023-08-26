@@ -1,5 +1,5 @@
 const sinon = require('sinon');
-const assert = require('assert')
+const assert = require('assert');
 const sendPaymentRequestToApi = require('./3-payment');
 const Utils = require('./utils');
 
@@ -9,7 +9,7 @@ describe('sendPaymentRequestToApi', () => {
 
     sendPaymentRequestToApi(100, 20);
 
-    assert.calledOnce(spy.calledOnce);
+    assert(spy.calledOnce);
 
     spy.restore();
   });
